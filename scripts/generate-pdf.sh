@@ -1,0 +1,8 @@
+#!/bin/sh
+
+/usr/bin/wkhtmltopdf -B 18 -L 0 -R 0 -T 20 --encoding utf-8 --header-spacing 4 --header-html https://panel.medicodeurgencia.com/admin/chapters/render-chapter-header --footer-html https://panel.medicodeurgencia.com/admin/chapters/render-chapter-footer --page-offset 0 --footer-spacing 2 --image-dpi 300 --no-outline --replace "color" "0" --replace "specialty" "$1" https://panel.medicodeurgencia.com/admin/specialties/render-specialty/$2 $3
+
+
+wait
+
+curl https://panel.medicodeurgencia.com/admin/specialties/generate-pdf-end/$2
